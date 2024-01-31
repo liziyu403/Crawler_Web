@@ -64,6 +64,7 @@ urls = [
     'https://www.letudiant.fr/classements/classement-des-ecoles-d-ingenieurs.html?page=1',
     'https://www.letudiant.fr/classements/classement-des-ecoles-d-ingenieurs.html?page=2',
     'https://www.letudiant.fr/classements/classement-des-ecoles-d-ingenieurs.html?page=3'
+    'https://www.letudiant.fr/classements/classement-des-ecoles-d-ingenieurs.html?page=4'
 ]
 
 # 创建一个 CSV 文件，并写入表头
@@ -78,7 +79,7 @@ with open('output.csv', 'w', newline='', encoding='utf-8') as csvfile:
         all_results.extend(page_results)
 
     # 按照分数从高到低排序
-    all_results.sort(key=lambda x: custom_sort(x[1]), reverse=True)
+    # all_results.sort(key=lambda x: custom_sort(x[1]), reverse=True)
 
     csvwriter.writerows(all_results)
 
