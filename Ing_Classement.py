@@ -68,7 +68,7 @@ urls = [
 ]
 
 # 创建一个 CSV 文件，并写入表头
-with open('output.csv', 'w', newline='', encoding='utf-8') as csvfile:
+with open('order_by_bac_score_output.csv', 'w', newline='', encoding='utf-8') as csvfile:
     csvwriter = csv.writer(csvfile)
     csvwriter.writerow(['工程师学校名称', '高考BAC录取均分', '学校评分网址'])
 
@@ -79,8 +79,8 @@ with open('output.csv', 'w', newline='', encoding='utf-8') as csvfile:
         all_results.extend(page_results)
 
     # 按照分数从高到低排序
-    # all_results.sort(key=lambda x: custom_sort(x[1]), reverse=True)
+    all_results.sort(key=lambda x: custom_sort(x[1]), reverse=True)
 
     csvwriter.writerows(all_results)
 
-print('爬取完成，已生成 output.csv 文件。')
+print('爬取完成，已生成 csv 文件。')
